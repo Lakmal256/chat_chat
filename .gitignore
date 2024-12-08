@@ -9,6 +9,7 @@
 .history
 .svn/
 migrate_working_dir/
+/dotenv
 
 # IntelliJ related
 *.iml
@@ -30,6 +31,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+/dotenv/
 
 # Symbolication related
 app.*.symbols
@@ -41,3 +43,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/android/app/google-services.json
+dotenv
+
+/ios/Runner/GoogleService-Info.plist
