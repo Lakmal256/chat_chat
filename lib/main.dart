@@ -37,6 +37,9 @@ Future<void> main() async {
       ChangeNotifierProvider(
         create: (context) => UserProvider(),
       ),
+      ChangeNotifierProvider(
+        create: (context) => ChatProvider(),
+      ),
     ],
     child: const MyApp(),
   ));
@@ -56,10 +59,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My Chat',
+      title: 'Chat Chat',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
       home: const SplashScreen(),

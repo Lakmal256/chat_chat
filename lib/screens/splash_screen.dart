@@ -33,14 +33,14 @@ class _SplashScreenState extends State<SplashScreen> {
             Icon(
               Icons.chat,
               size: 100,
-              color: Colors.amber.shade800,
+              color: Colors.green.shade800,
             ),
             Text(
-              "My Chat",
+              "Chat Chat",
               style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.w500,
-                  color: Colors.amber.shade800),
+                  color: Colors.green.shade800),
             )
           ],
         ),

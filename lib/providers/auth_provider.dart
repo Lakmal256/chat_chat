@@ -9,6 +9,7 @@ import '../screens/screens.dart';
 import '../utils/utils.dart';
 import 'providers.dart';
 
+
 class AuthUProvider extends ChangeNotifier {
   AuthController authController = AuthController();
   User? _user;
@@ -22,11 +23,10 @@ class AuthUProvider extends ChangeNotifier {
       } else {
         Logger().f('User is signed in!');
         _user = user;
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          Provider.of<UserProvider>(context, listen: false).updateOnlineStatus(true, context);
-          notifyListeners();
-          CustomNavigation.nextPage(context, const SplashScreen());
-        });
+        Provider.of<UserProvider>(context, listen: false)
+            .updateOnlineStatus(true, context);
+        notifyListeners();
+        CustomNavigation.nextPage(context, const ConversationScreen());
       }
     });
   }
@@ -46,7 +46,8 @@ class AuthUProvider extends ChangeNotifier {
   }
 
   Future<void> signOut(BuildContext context) async {
-    Provider.of<UserProvider>(context, listen: false).updateOnlineStatus(false, context);
+    Provider.of<UserProvider>(context, listen: false)
+        .updateOnlineStatus(false, context);
     authController.userSignOut();
   }
 }
