@@ -19,14 +19,18 @@ class AuthUProvider extends ChangeNotifier {
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
         Logger().e('User is currently signed out!');
-        CustomNavigation.nextPage(context, const SignInPage());
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          CustomNavigation.nextPage(context, const SignInPage());
+        });
       } else {
         Logger().f('User is signed in!');
         _user = user;
-        Provider.of<UserProvider>(context, listen: false)
-            .updateOnlineStatus(true, context);
-        notifyListeners();
-        CustomNavigation.nextPage(context, const ConversationScreen());
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          Provider.of<UserProvider>(context, listen: false)
+              .updateOnlineStatus(true, context);
+          notifyListeners();
+          CustomNavigation.nextPage(context, const ConversationScreen());
+        });
       }
     });
   }
